@@ -10,7 +10,6 @@ Note: There are many updates happening. No need to file an issue as we are alrea
 git clone https://github.com/adamhrv/vframe_search
 cd vframe_search
 docker-compose up --build
-docker-compose up
 docker-compose logs -f
 ```
 
