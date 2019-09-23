@@ -1,0 +1,17 @@
+################################################################################
+# Recipe examples for used in VFRAME Search
+# NOT YET IMPLEMENTED
+################################################################################
+
+basic:
+  - name: caffe_bvlc_alexnet_imagenet
+
+basic_places_and_imagenet:
+  - name: caffe_googlenet_places365
+  - name: caffe_bvlc_alexnet_imagenet
+
+places_and_imagenet_multi:
+  - name: caffe_googlenet_places365
+  - name: caffe_alexnet_places365
+  - name: caffe_bvlc_alexnet_imagenet
+  - name: darknet_darknet19_448_imagenet

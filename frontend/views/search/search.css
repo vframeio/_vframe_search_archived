@@ -1,0 +1,191 @@
+.query {
+  background-color: #f5f5f5;
+  padding: 1.5rem 1.5rem;
+}
+
+/* query breadcrumbs */
+
+.breadcrumbs {
+  margin-bottom: 0.875rem;
+  text-transform: uppercase;
+  color: #333;
+  font-size: 0.85rem;
+}
+.breadcrumbs a {
+  color: #11f;
+  text-decoration: none;
+}
+
+/* query image box drawing component */
+
+.queryImage {
+  width: 30rem;
+  margin-right: 1.5rem;
+}
+
+.queryImage .querySelector {
+  position: relative;
+  display: inline-block;
+}
+
+.queryImage .uploadText {
+  padding-top: 0.625rem;
+  font-size: 0.75rem;
+  color: #333;
+}
+
+.queryImage img {
+  display: block;
+  max-width: 100%;
+  max-height: 20rem;
+}
+.queryImage .rect {
+  position: absolute;
+  border: 1px solid #11f;
+}
+.queryImage .rect span {
+  display: inline-block;
+  padding: 0.125rem;
+  background: #11f;
+  color: #fff;
+  font-size: 0.725rem;
+  height: 1rem;
+  position: absolute;
+  top: -1rem;
+  left: -0.0625rem;
+  white-space: nowrap;
+}
+
+/* query options */
+
+.queryOptions .row {
+  margin-bottom: 0.75rem;
+}
+.queryOptions .preview {
+  max-width: 8rem;
+  max-height: 4rem;
+}
+.queryOptions .log {
+  font-size: 0.75rem;
+  color: #333;
+  line-height: 1.5;
+}
+.queryOptions .log span {
+  display: block;
+}
+.queryOptions .select {
+  width: 22rem;
+}
+
+/* menubar at the top of a section */
+
+.menubar {
+  background-color: #e0e0e0;
+  padding: 0.75rem 1.5rem;
+  align-items: center;
+}
+.menubar label > span {
+  margin-right: 1.25rem;
+}
+section > div.options {
+  padding: 0;
+}
+
+section > div {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+section > div:last-child {
+  padding-bottom: 1.5rem;
+}
+section > div.menubar:last-child {
+  padding-bottom: 0.75rem;
+}
+
+/* results */
+
+.resultsContainer {
+  background-color: #fff;
+}
+.results {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+.results > div {
+  display: inline-block;
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.results img {
+  max-width: 100%;
+}
+.results.th > div {
+  max-width: 160px;
+}
+.results.sm > div {
+  max-width: 320px;
+}
+.results.md > div {
+  max-width: 640px;
+}
+.results.lg > div {
+  max-width: 1280px;
+}
+.results.orig > div {
+  max-width: 100%;
+}
+.results.th img {
+  max-height: 120px;
+}
+.results.sm img {
+  max-height: 160px;
+}
+.results.md img {
+  max-height: 480px;
+}
+.results.lg img {
+  max-height: 960px;
+}
+.results.orig img {
+  max-width: none;
+  max-height: none;
+}
+.results .img {
+  background: #f8f8f8;
+  width: 100%;
+  margin-bottom: 0.375rem;
+}
+.results .meta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.75rem;
+  color: #888;
+}
+.results .meta.center,
+.row.center {
+  align-items: center;
+}
+.results .meta > div {
+  overflow: hidden;
+  max-width: 50%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.results .meta .buttons {
+}
+
+/* classifications */
+
+.classifications h4 {
+  margin-bottom: 0.375rem;
+}
+
+/* collection link... */
+
+.collectionSelectContainer .menuButton.small .icon,
+.collectionSelectContainer .menuButton.small .icon:hover {
+  border: 1px solid #888;
+}

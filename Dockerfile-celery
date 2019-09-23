@@ -1,0 +1,71 @@
+# ------------------------------------------------------
+#
+# VFRAME / VCAT Search Engine
+# https://github.com/adamhrv/vframe_search
+#
+# ------------------------------------------------------
+
+FROM ubuntu:18.04
+
+# [ Install system dependencies ]
+
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && apt upgrade -y
+RUN apt-get update && apt-get install -y --no-install-recommends \
+         build-essential \
+         cmake \
+         git \
+         curl \
+         vim \
+         ca-certificates \
+         python-qt4 \
+         libjpeg-dev \
+         zip \
+         unzip \
+         netbase \
+         dnsutils \
+         libpng-dev &&\
+rm -rf /var/lib/apt/lists/*
+RUN apt update
+
+# [ Env vars ]
+
+ENV DOCKER_USER root
+ENV USER_DIR /root
+WORKDIR ${USER_DIR}
+ENV VFRAME_SEARCH_DIR vframe_search
+
+# [ Install miniconda ]
+
+ENV PYTHON_VERSION=3.7
+RUN curl -o ${USER_DIR}/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh  && \
+     chmod +x ${USER_DIR}/miniconda.sh && \
+     ${HOME}/miniconda.sh -b -p /opt/conda && \
+     rm ${USER_DIR}/miniconda.sh && \
+    /opt/conda/bin/conda install conda-build
+
+ENV PATH=$PATH:/opt/conda/bin/
+
+# [ Build conda env ] 
+
+WORKDIR ${USER_DIR}/${VFRAME_SEARCH_DIR}/
+COPY environment.yml ${USER_DIR}/${VFRAME_SEARCH_DIR}/
+RUN conda env create -f environment.yml
+RUN echo "source activate vframe_search" > ~/.bashrc
+ENV PATH /opt/conda/envs/vframe_search/bin:$PATH
+
+# [ mysql ]
+
+ENV MYSQL_DATABASE vframe_search
+
+# [ Copy backend python app ]
+
+COPY cli ${USER_DIR}/${VFRAME_SEARCH_DIR}/cli/
+COPY modelzoo ${USER_DIR}/${VFRAME_SEARCH_DIR}/modelzoo/
+
+# [ Run celery worker ]
+
+VOLUME "/root/vframe_search/data_store"
+
+WORKDIR ${USER_DIR}/${VFRAME_SEARCH_DIR}/cli/
+CMD ["/opt/conda/envs/vframe_search/bin/celery", "worker", "-A", "app.tasks.celery", "--loglevel=info", "-E"]

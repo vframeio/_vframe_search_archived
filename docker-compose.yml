@@ -1,0 +1,94 @@
+version: '3'
+networks:
+  dev:
+    driver: bridge
+volumes:
+  datastore:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/data_store # abs. path ONLY
+      o: bind
+  mysql:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/data_store/docker/mysql # abs. path ONLY
+      o: bind
+  redis:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/data_store/docker/redis # abs. path ONLY
+      o: bind
+services:
+  mysql:
+    image: mysql:5
+    environment:
+      - "MYSQL_ALLOW_EMPTY_PASSWORD=yes"
+      - "MYSQL_DATABASE=vframe_search"
+      - "MYSQL_USER=vframe_search"
+      - "MYSQL_PASSWORD=vframe_search"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mysql:/var/lib/mysql"
+    networks:
+      - dev
+  redis:
+    image: redis:5
+    ports:
+      - "6379:6379"
+    volumes:
+      - "redis:/data"
+    networks:
+      - dev
+    depends_on:
+      - "mysql"
+  api:
+    build: .
+    environment:
+      - "DB_HOST=mysql:3306"
+      - "DB_NAME=vframe_search"
+      - "DB_USER=vframe_search"
+      - "DB_PASS=vframe_search"
+      - "FLASK_ENV=development"
+      - "FLASK_DEBUG=0"
+      - "CELERY_BROKER_URL=redis://redis:6379/0"
+      - "CELERY_RESULT_BACKEND=redis://redis:6379/0"
+      - "TASK_ENDPOINT=http://api:5000/worker"
+      - "SOCKETIO_MESSAGE_QUEUE=redis://redis:6379/0"
+    depends_on:
+      - "mysql"
+      - "redis"
+    ports:
+      - "5000:5000"
+    networks:
+      - dev
+    volumes:
+      - "datastore:/root/vframe_search/data_store"
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfile-celery
+    environment:
+      - "DB_HOST=mysql:3306"
+      - "DB_NAME=vframe_search"
+      - "DB_USER=vframe_search"
+      - "DB_PASS=vframe_search"
+      - "FLASK_ENV=development"
+      - "FLASK_DEBUG=0"
+      - "CELERY_BROKER_URL=redis://redis:6379/0"
+      - "CELERY_RESULT_BACKEND=redis://redis:6379/0"
+      - "TASK_ENDPOINT=http://api:5000/worker"
+      - "SOCKETIO_MESSAGE_QUEUE=redis://redis:6379/0"
+    depends_on:
+      - "mysql"
+      - "redis"
+      - "api"
+    ports:
+      - "5001:5001"
+    networks:
+      - dev
+    volumes:
+      - "datastore:/root/vframe_search/data_store"

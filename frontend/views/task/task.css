@@ -1,0 +1,31 @@
+.taskContainer {
+  height: 100%;
+}
+.taskContainer > div:last-child {
+  padding: 1.25rem;
+}
+.taskInfo {
+  margin: 0.75rem 0;
+}
+
+.progress {
+}
+.progress .bar {
+  background: #f8f8f8;
+  margin: 0.25rem 0;
+  height: 0.25rem;
+  width: 20rem;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  margin-bottom: 0.2rem;
+}
+.progress .bar .percentage {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  background: #11f;
+}
+
+.taskInfo .error {
+  color: #f00;
+}

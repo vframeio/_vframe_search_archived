@@ -1,0 +1,125 @@
+
+@keyframes L_circle_rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes L_stroke_rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1080deg);
+  }
+}
+@keyframes L_stroke_fix {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(135deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+@keyframes L_stroke_left_grow {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(-140deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+@keyframes L_stroke_right_grow {
+  0% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(140deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+.circular-loader .stroke::before, .circular-loader .stroke-right::before, .circular-loader .stroke-left::before {
+  content: "";
+  display: block;
+}
+
+.circular-loader, .circular-loader .stroke, .circular-loader .stroke::before, .circular-loader .stroke-right, .circular-loader .stroke-right::before, .circular-loader .stroke-left, .circular-loader .stroke-left::before {
+  width: 2em;
+  height: 2em;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.circular-loader .stroke::before, .circular-loader .stroke-right::before, .circular-loader .stroke-left::before {
+  border-style: solid;
+  border-width: 0.21429em;
+  border-color: #778;
+}
+
+.circular-loader .stroke-right, .circular-loader .stroke-left::before {
+  position: absolute;
+  clip: rect(0 2em 2em 1em);
+}
+.circular-loader .stroke-right::before, .circular-loader .stroke-left {
+  position: absolute;
+  clip: rect(0 1em 2em 0);
+}
+.circular-loader .stroke::before {
+  position: absolute;
+  clip: rect(0 1.05em 1em 0.95em);
+}
+
+/**/
+.circular-loader {
+  animation: L_circle_rotate 1568.23529ms linear infinite both;
+}
+.circular-loader .stroke::before,
+.circular-loader .stroke-right, .circular-loader .stroke-left {
+  animation: L_stroke_fix 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+.circular-loader .stroke {
+  animation: L_stroke_rotate 5332ms steps(4) infinite both;
+}
+.circular-loader .stroke-right::before {
+  animation: L_stroke_right_grow 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+.circular-loader .stroke-left::before {
+  animation: L_stroke_left_grow 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+}
+@keyframes color_K {
+  0%, 15% {
+    border-color: #44444f;
+  }
+  25%, 40% {
+    border-color: #bbbbc7;
+  }
+  50%, 65% {
+    border-color: #66666f;
+  }
+  75%, 90% {
+    border-color: #ccccd4;
+  }
+  100% {
+    border-color: #44444f;
+  }
+}
+.circular-loader.color .stroke::before {
+  animation: L_stroke_fix 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, color_K 5332ms linear infinite both;
+}
+.circular-loader.color .stroke-right::before {
+  animation: L_stroke_right_grow 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, color_K 5332ms linear infinite both;
+}
+.circular-loader.color .stroke-left::before {
+  animation: L_stroke_left_grow 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, color_K 5332ms linear infinite both;
+}
+

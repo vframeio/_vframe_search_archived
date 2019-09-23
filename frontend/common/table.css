@@ -1,0 +1,74 @@
+/* tables on metadata pages */
+
+h3.tt {
+  margin: 1.5rem 0 0.25rem 0;
+  font-size: 1.25rem;
+}
+table {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  line-height: 1.5;
+  color: #666;
+}
+.tableObject td,
+.tableObject th {
+  padding: 0.1875rem;
+  vertical-align: top;
+}
+.tableObject hr {
+  width: 100%;
+  color: transparent;
+  border: 0;
+  border-bottom: 1px solid #bbb;
+  align: left;
+  margin: 3px 0;
+  padding: 0;
+}
+.tableObject th,
+.tableTuples th {
+  min-width: 8rem;
+  text-align: left;
+  text-transform: capitalize;
+  padding-left: 0;
+  padding-right: 0.625rem;
+  font-weight: 300;
+  color: #333;
+}
+.tableTuples td {
+  text-align: right;
+}
+.tableObject td {
+  font-weight: normal;
+  color: #000;
+}
+.tableObject .tableObject {
+  border: 0.0625rem solid #ddd;
+}
+.tableArray {
+  border: 0.0625rem solid #ddd;
+  border-spacing: 0;
+}
+.tableArray td {
+  border-bottom: 0.0625rem solid #ddd;
+}
+/*
+.gray {
+  font-size: 12px;
+  color: #888;
+  display: block;
+}
+.sha256.heading {
+  margin: 20px 0 0px;
+}
+.gray span {
+  padding-right: 5px;
+}
+.gray {
+  margin-bottom: 10px;
+}
+.gray a {
+  color: #666;
+}
+*/

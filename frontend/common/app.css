@@ -1,0 +1,353 @@
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+body {
+  background: #fff;
+  color: #000;
+  overflow-y: scroll;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+}
+.gray {
+  color: #888;
+}
+
+/* layout */
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.row > div {
+  margin-right: 1.5rem;
+}
+.row > div:last-child {
+  margin-right: 0;
+}
+.body section > div:last-child {
+  flex-grow: 1;
+}
+
+.row.menubar {
+  justify-content: flex-end;
+}
+.menubar > :first-child {
+  flex: 1;
+}
+
+/* lists */
+
+ul {
+  margin: 0.75rem 0;
+}
+li {
+  line-height: 1.5;
+}
+
+/* header */
+
+header {
+  height: 3.125rem;
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #11f;
+  color: white;
+}
+header b {
+  font-weight: 900;
+}
+header a {
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+header > div:first-child {
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1.5rem;
+}
+header .vcat-btn {
+  font-size: 0.875rem;
+  padding-left: 0.5rem;
+  letter-spacing: 0.0625rem;
+}
+header > div:last-child a {
+  padding: 0.5rem;
+}
+header .btn-link:focus,
+header .btn-link:hover,
+header .btn-link:active,
+header a:focus,
+header a:hover,
+header a:active {
+  text-decoration: none;
+  color: white;
+}
+header a:focus,
+header a:hover,
+header a:active {
+  color: white;
+}
+.menuToggle {
+  width: 1.625rem;
+  height: 1.625rem;
+  cursor: pointer;
+  line-height: 1;
+}
+header a.navbar-brand {
+  font-size: .8rem;
+}
+
+header > div:last-child {
+  padding-right: 8px;
+}
+header .username {
+  cursor: pointer;
+}
+
+/* headings */
+
+h1 {
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+div:first-child > h1:first-child,
+.menuButtons + div > h1:first-child {
+  margin-top: 0;
+}
+h2 {
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+h3 {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 1.0rem;
+  font-weight: normal;
+}
+p {
+  margin: 1.25rem 0;
+  line-height: 1.5;
+}
+.byline {
+  color: #888;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* links */
+
+a {
+  color: #11f;
+}
+
+/* menu button */
+
+.menuButtons {
+  width: 2.5rem;
+  min-height: 18rem;
+}
+.menuButton {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.menuButton .icon {
+  background-color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid;
+  border-color: #888;
+  margin-bottom: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border-color 0.1s;
+  border-radius: 0.125rem;
+}
+.menuButton svg {
+  width: 80%;
+  fill: #888;
+}
+.menuButton:hover .icon {
+  background-color: #eef;
+  border-color: #000;
+}
+.menuButton:hover svg {
+  fill: #000;
+}
+
+.menuButton.small {
+  width: 1.5rem;
+  margin-bottom: 0;
+  margin-right: 0.1875rem;
+}
+.menuButton.small .icon {
+  border: 0;
+  border-color: #888;
+  margin-bottom: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.0625rem;
+}
+.menuButton.small svg {
+  fill: #888;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.menuButton.small .icon:hover {
+  border-color: #11f;
+  background-color: #11f;
+}
+.menuButton.small:hover svg {
+  fill: #fff;
+}
+
+.menuButton.small.active .icon {
+  border-color: #11f;
+  background-color: #11f;
+}
+.menuButton.small.active svg {
+  fill: #fff;
+}
+.menuButton.small.active:hover .icon {
+  border-color: #fff;
+  background-color: #11f;
+}
+.menuButton.small.active:hover svg {
+  fill: #fff;
+}
+
+/* rows - like a table */
+
+.rows {
+  width: 100%;
+}
+.rows .row {
+  width: 100%;
+}
+.rows .row:nth-of-type(2n+1) {
+  background: #f8f8f8;
+}
+.rows .row:nth-of-type(2n+2) {
+  background: #eeeeee;
+}
+.rows .row:hover {
+  background: #d8d8d8;
+}
+.rows .row > div,
+.rows .row a > div {
+  padding: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+.rows .row div.title {
+  min-width: 10rem;
+}
+.rows .row div.string,
+.rows .row div.str {
+  min-width: 6rem;
+}
+.rows .row div.bool {
+  width: 4rem;
+  overflow: visible;
+  text-align: center;
+}
+.rows .row div.color {
+  width: 4rem;
+  overflow: visible;
+  text-align: center;
+}
+.rows .row div.date {
+  min-width: 10rem;
+}
+.rows .row div.int,
+.rows .row div.float {
+  text-align: right;
+  min-width: 6rem;
+}
+.rows .row.heading div.int,
+.rows .row.heading div.float {
+  text-align: center;
+}
+.rows .row div.text {
+  flex: 1;
+  max-width: 20rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rows .row.heading div {
+  text-transform: capitalize;
+  font-weight: bold;
+  background: #f8f8f8;
+}
+.rows .row.heading:hover {
+  background: #f8f8f8;
+}
+
+/* misc ui */
+
+pre, code, .license {
+  font-family: Menlo, monospace;
+  font-size: 0.75rem;
+  line-height: 2;
+}
+.swatch {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 1px solid #333;
+}
+.dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+.light {
+  color: #888;
+}
+.pill {
+  display: inline-block;
+  padding: 0.125rem;
+  width: 2.5rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.pill.yes {
+  background: #11f;
+  color: #fff;
+}
+.pill.no {
+  color: #ccc;
+  border: 1px solid;
+}
