@@ -7,7 +7,7 @@ We offer a variety of pre-trained models in our model zoo, taken from various so
 
 ## Usage
 
-To the user, the system should be operated in the following order (similar to the steps in the (quick start guide)[../README.md]).
+To the user, the system should be operated in the following order (similar to the steps in the [quick start guide](../README.md).
 
 - Media is added to the system
 - Pre-trained neural network models are downloaded
