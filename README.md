@@ -31,7 +31,7 @@ cp ~/Downloads/keyframes_1k/ data_store/incoming/  # or use your image dataset!
 docker exec -it vframe_search_api_1 python cli_data.py add -i ../data_store/incoming/
 ```
 
-Images are copied into the database and the originals are left in the incoming folder, so you must manually `rm -rf data_store/incoming/*` if you don't need the original archives.
+Images are copied into the database and the originals are left in the incoming folder, so please `rm -rf data_store/incoming/*` if you don't need the original archives.
 
 ### 3. Build feature indexes
 
@@ -50,6 +50,7 @@ Once processing completes, you are ready to begin using the [search engine](http
 
 ## Documentation
 
+- [Overview](docs/overview.md) - a brief look at the system
 - [API](docs/api.md) - about our RESTful API
 - [Commandline interface](docs/commands.md) - about commandline scripting
 - [Model zoo](docs/modelzoo.md) - about our model zoo
