@@ -26,7 +26,7 @@ class CrudView(FlaskView):
 
   def index(self):
     """
-    List all items
+    List all {model}s
     """
     items = self.model.query.all()
     return jsonify(self.on_index({
@@ -36,7 +36,7 @@ class CrudView(FlaskView):
 
   def get(self, id):
     """
-    Fetch a single item
+    Fetch a single {model}.
     """
     item = self.model.query.get(id)
     if not item:
@@ -51,7 +51,9 @@ class CrudView(FlaskView):
 
   def post(self):
     """
-    Create a new item
+    Create a new {model}.
+
+    * JSON params: {jsonparams}
     """
     raw_form = MultiDict(request.json) if request.json is not None else request.form
     form = self.form(raw_form)
@@ -72,7 +74,9 @@ class CrudView(FlaskView):
 
   def put(self, id):
     """
-    Update an item
+    Update a {model}.
+
+    * JSON params: {jsonparams}
     """
     item = self.model.query.get(id)
     if not item:
@@ -94,7 +98,7 @@ class CrudView(FlaskView):
 
   def delete(self, id):
     """
-    Delete an item
+    Delete a {model}.
     """
     item = self.model.query.get(id)
     if not item:

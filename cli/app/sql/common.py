@@ -33,6 +33,7 @@ from app.sql.models.collection_media import CollectionMedia, CollectionMediaForm
 from app.sql.models.upload import Upload
 from app.sql.models.feature_type import FeatureType, FeatureTypeForm
 
+# wait for the mysql docker to finish initializing the first time
 for i in range(10):
   try:
     db.Model.metadata.create_all(engine)

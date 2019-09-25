@@ -1,22 +1,10 @@
 # Setup
 
-Note: There are many updates happening. No need to file an issue as we are already aware of many issues and are working to update the repo.
+There are two ways of running the VFrame Search application: you can use Docker, or you can install everything by hand.  Following setup, please refer to steps 2-4 in the (README.md)[../README.md].
 
+## Manual Installation
 
-## Docker Installation
-
-This is the recommended way. See [docker.md](Docker setup guide) to install Docker and Docker Compose on your system. Then run:
-
-- `docker-compose up;  # starts docker`
-- `docker-compose down;  # stops docker`
-
-Accces docker images while running:
-
-- TODO
-
-## Conda Installation
-
-Dependencies can also be installed on your system using conda and npm.
+Dependencies can also be installed on your system manually.
 
 ### Python environment
 
@@ -27,6 +15,8 @@ conda activate vframe_search
 
 ### Node environemnt
 
+We developed the frontend using Node v10 (LTS).  We recommend using `nvm` to manage your local Node installation.
+
 ```
 npm install
 npm run build
@@ -34,7 +24,7 @@ npm run build
 
 ### MySQL
 
-Log into MySQL as root: `mysql -u root` and create a database.  Put the appropriate values in `.env`.
+Log into MySQL as root: `mysql -u root` and create a database. Corresponding settings should be put in the file `.env` in the root directory of the repo.  Please see the file `.env-sample` for a template.
 
 ```
 CREATE USER 'vframe_search'@'localhost' IDENTIFIED BY 'a very secure password';
@@ -44,7 +34,7 @@ GRANT ALL PRIVILEGES ON vframe_search TO 'vframe_search'@'localhost';
 
 ### Redis and Celery
 
-Run the celery command from inside `cli/`.
+The Redis server can be run as a daemon, or manually using `screen(1)`.  Run the Celery command from inside `cli/`.
 
 ```
 python `which celery` worker -A app.tasks.celery --loglevel=info -E
@@ -59,7 +49,7 @@ With socket support:
 python cli_flask.py socket
 ```
 
-Without socket support:
+Without socket support (background indexing disabled):
 
 ```
 python cli_flask.py run

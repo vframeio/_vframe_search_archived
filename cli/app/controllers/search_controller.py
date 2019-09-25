@@ -19,7 +19,7 @@ feature_index = SingleFeatureIndex()
 class SearchView(FlaskView):
   def info(self):
     """
-    Identify the active model
+    Return information about the currently loaded model and feature index.
     """
     if feature_index.index is None:
       return self.load(1)
@@ -53,7 +53,7 @@ class SearchView(FlaskView):
 
   def load(self, id):
     """
-    Reload the active search model
+    Load a feature index.
     """
     feature_type = FeatureType.query.get(id)
     if feature_type:
@@ -73,7 +73,7 @@ class SearchView(FlaskView):
 
   def load_detection_model(self, key: str):
     """
-    Reload the active detection model
+    Load a detection model.
     """
     feature_index.load_detection_model(key)
     return jsonify({
@@ -86,7 +86,9 @@ class SearchView(FlaskView):
 
   def media(self, id):
     """
-    Query the model with existing media (by id)
+    Query the model with a media object (by id).
+
+    * Query string params: offset, limit
     """
     start_time = time.time()
     media = Media.query.get(id)
@@ -112,7 +114,9 @@ class SearchView(FlaskView):
 
   def sha256(self, hash: str):
     """
-    Query the model with existing media (by hash)
+    Query the model with a media object (by sha256)
+
+    * Query string params: offset, limit
     """
     start_time = time.time()
     media = Media.query.filter(_and(Media.sha256 == hash, Media.parent_id is None)).first()
@@ -139,6 +143,8 @@ class SearchView(FlaskView):
   def upload(self, id):
     """
     Query the model with something we already uploaded
+
+    * Query string params: offset, limit
     """
     start_time = time.time()
     upload = Upload.query.get(id)
@@ -164,7 +170,9 @@ class SearchView(FlaskView):
 
   def random(self, seed: str):
     """
-    Fetches a random media w/ seed
+    Fetches a random media w/ seed.
+
+    * Query string params: offset, limit
     """
     start_time = time.time()
     count = db.session.query(Media).count()

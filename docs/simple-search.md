@@ -1,6 +1,6 @@
-# Simple search
+# Simple search (deprecated)
 
-Note: There are many updates happening. No need to file an issue as we are already aware of many issues and are working to update the repo.
+Note: The simple search has been deprecated.  These instructions are out of date.  While the backend server still works, the frontend codebase has been superceded.
 
 Getting started with image search.
 
@@ -48,7 +48,6 @@ Next, build the feature vector index:
 Finally, start the Flask sever:
 
 - `python cli_simple.py run -i ../keyframes.pkl`
-- Then check <http://127.0.0.1:3000/search/>
 
 
 ## API
@@ -68,5 +67,3 @@ curl -X POST \
 Try download another classification model and generating a different index. Results will vary depending on how the DNNs were trained. For example networks trained on ImageNet are biased towards objects appearing centered in the image. The Places365 DNN should work better at diffrentiating between more scene-based imagery.
 
 Show all Model Zoo models: `python cli_models.py download --help`
-
-Note: some models may not work yet. No need to file an issue as we are already aware of the issues and are working to update the repo.

@@ -1,10 +1,17 @@
 # VFRAME Search Engine
 
-Note: There are many updates happening. No need to file an issue as we are already aware of many issues and are working to update the repo.
+VFrame Search is an image search engine integrating neural networks for indexing and object detection.  It is designed to fit into an automated content ingestion workflow to allow for efficient search and indexing of a continuous stream of incoming media.  As such it is built out of the following components:
+
+- Web-based frontend: search, index, and dashboard
+- Flask backend: RESTful API for talking to MySQL and also for running jobs
+- Celery worker: performs indexing and other long tasks
+- Commandline interface: running tasks, processing images, and integrating into other tasks.
 
 ## Quick Start
 
 ### 1. Run the Docker daemon
+
+After installing Docker and docker-compose, clone this repo and spin up the Docker containers:
 
 ```
 git clone https://github.com/adamhrv/vframe_search
@@ -41,8 +48,16 @@ Finally, navigate to the [Task Manager](http://0.0.0.0:5000/task/) and click "up
 
 Once processing completes, you are ready to begin using the [search engine](http://0.0.0.0:5000/search/).
 
-## Docs (in progress):
+## Documentation
 
-- [Getting started](docs/setup.md)
-- [Setting up Docker](docs/docker.md)
-- [Model zoo](docs/modelzoo.md)
+- [API](docs/api.md) - about our RESTful API
+- [Commandline interface](docs/commands.md) - about commandline scripting
+- [Model zoo](docs/modelzoo.md) - about our model zoo
+- [Docker setup](docs/docker.md) - notes on installing with Docker
+- [Manual setup](docs/setup.md) - notes on installing everything locally
+- [Images](docs/images.md) - how to get images
+- [Simple search](docs/simple-search.md) - basic demonstration image search engine (deprecated)
+
+## About this project
+
+For more information, please see our website at [vframe.io](https://vframe.io).

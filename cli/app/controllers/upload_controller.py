@@ -15,7 +15,9 @@ from app.server.decorators import APIError
 class UploadView(FlaskView):
   def index(self):
     """
-    List all uploads
+    List all uploaded files.
+
+    * Query string params: offset, limit, sort (id, date), order (asc, desc)
     """
     uploads = Upload.query.all()
     return jsonify({
@@ -25,7 +27,7 @@ class UploadView(FlaskView):
 
   def get(self, id):
     """
-    Fetch a single upload
+    Fetch a single upload.
     """
     upload = Upload.query.get(id)
     return jsonify({
@@ -35,7 +37,9 @@ class UploadView(FlaskView):
 
   def post(self):
     """
-    Create a new upload
+    Upload a new file.
+
+    * JSON params: username
     """
 
     try:
@@ -97,7 +101,7 @@ class UploadView(FlaskView):
 
   def delete(self, id):
     """
-    Delete a upload
+    Delete an uploaded file.
     """
     upload = Upload.query.get(id)
     if not upload:

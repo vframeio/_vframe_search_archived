@@ -18,11 +18,16 @@ from app.tasks.celery import celery, tasks, task_classes
 
 class TaskView(FlaskView):
   def index(self):
+    """
+    List all allowed tasks.
+    """
     return jsonify(tasks)
 
   @route('/info/', methods=['GET'])
   def info(self):
-    """List task queues"""
+    """
+    List task queues, as reported by Celery.
+    """
     i = inspect()
     return jsonify({
       "scheduled": i.scheduled(),
@@ -30,8 +35,11 @@ class TaskView(FlaskView):
       "queued": i.reserved(),
     })
 
-  @route('/test/', methods=['GET', 'POST'])
+  @route('/test/', methods=['POST'])
   def test(self):
+    """
+    Run a test task, which reports periodically over websocket until it completes.
+    """
     if request.json:
       params = request.json['params'] or {}
     else:
@@ -44,13 +52,18 @@ class TaskView(FlaskView):
 
   @route('/run/', methods=['POST'])
   def run_task(self):
+    """
+    Run a task.
+
+    * JSON parameters: task_name, params (hash, if applicable)
+    """
     task_name = request.json['task_name']
     params = request.json['params'] or {}
 
     if task_name not in task_classes:
       return jsonify({ 'error': 'No such task' }), 500
 
-    # TODO: sanitize params
+    # TODO: sanitize params :-))))
 
     if request.json:
       params = request.json['params'] or {}

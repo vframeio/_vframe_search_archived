@@ -12,7 +12,7 @@ from app.settings import app_cfg
 class ModelzooView(FlaskView):
   def index(self):
     """
-    List all models
+    List all models.
     """
     # medias = Media.query.limit(50)
     # print(medias[0])
@@ -26,7 +26,7 @@ class ModelzooView(FlaskView):
 
   def name(self, name: str):
     """
-    Fetch a single media by SHA256
+    Fetch a single model by name.
     """
     model_cfg = get_model_cfg(name)
     modelzoo_path = os.path.join(app_cfg.DIR_MODELZOO, name)
@@ -40,10 +40,6 @@ class ModelzooView(FlaskView):
       'status': 'ok',
       'res': model_cfg,
     })
-
-  # @route('/<id>', methods=['POST'])
-  # def post(self, id: str) -> str:
-  #     return "Post"
 
 def get_model_cfg(model_name):
   model_cfg = app_cfg.MODELZOO_CFG.get(model_name)

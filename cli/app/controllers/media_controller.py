@@ -13,7 +13,9 @@ from app.sql.models.upload import Upload
 class MediaView(FlaskView):
   def index(self):
     """
-    List all media
+    List all media.
+
+    * Query string params: offset, limit, sort (id, date), order (asc, desc)
     """
     medias = Media.query.limit(50)
     print(medias[0])
@@ -24,7 +26,7 @@ class MediaView(FlaskView):
 
   def info(self):
     """
-    Get info about the media in the database
+    Get info about the quantity of media in the database, including free disk space.
     """
     count_query = (Media.query.statement.with_only_columns([func.count()]).order_by(None))
     mediaCount = db.session.execute(count_query).scalar()
@@ -43,7 +45,7 @@ class MediaView(FlaskView):
 
   def id(self, id):
     """
-    Fetch a single media by ID
+    Fetch a single media by ID.
     """
     media = Media.query.get(id)
     return jsonify({
@@ -53,7 +55,7 @@ class MediaView(FlaskView):
 
   def sha256(self, hash: str):
     """
-    Fetch a single media by SHA256
+    Fetch a single media by SHA256.
     """
     if len(hash) != 64:
       return jsonify({
@@ -68,7 +70,7 @@ class MediaView(FlaskView):
 
   def random(self):
     """
-    Fetches a random media
+    Fetch a random media.
     """
     count = db.session.query(Media).count()
     if count == 0:

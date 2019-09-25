@@ -35,6 +35,7 @@ DIR_FEATURES = join(DIR_DATA_STORE, 'features')
 DIR_INDEXES = join(DIR_DATA_STORE, 'indexes')
 DIR_EXPORTS = join(DIR_DATA_STORE, 'exports')
 
+DIR_DOCS = join(DIR_VFRAME_SEARCH, 'docs')
 DIR_MODELZOO = join(DIR_VFRAME_SEARCH, 'modelzoo')
 FP_MODELZOO = join(DIR_VFRAME_SEARCH, 'modelzoo/modelzoo.yaml')
 

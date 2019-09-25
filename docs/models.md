@@ -4,6 +4,6 @@ The *Model Zoo* is a collection of open source computer vision models used for i
 
 ## Download
 
-- download all models: `cli_models.py download --all`
-- download a model: `cli_models.py download --model caffe_bvlc_googlenet_imagenet`
-- set your download path in the `.env` file using `DATA_STORE=/path/to/data/`
+- Download all models: `cli_models.py download --all`
+- Download a model: `cli_models.py download --model caffe_bvlc_googlenet_imagenet`
+- Set your download path in the `.env` file using `DATA_STORE=/path/to/data/`

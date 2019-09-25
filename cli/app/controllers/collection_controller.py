@@ -24,7 +24,9 @@ class CollectionView(CrudView):
   @route('/<id>/media/', methods=['POST'])
   def add_collection_media(self, id: int):
     """
-    Add media to collection
+    Add media to a collection.
+
+    * JSON params: media_id, username
     """
     collection = Collection.query.get(id)
     if not collection:
@@ -51,7 +53,7 @@ class CollectionView(CrudView):
   @route('/<id>/media/<media_id>/', methods=['DELETE'])
   def destroy_collection_media(self, id: int, media_id: int):
     """
-    Remove media from a collection
+    Remove media from a collection.
     """
     collection_media = CollectionMedia.query.get((id, media_id,))
     if collection_media:
@@ -68,7 +70,7 @@ class CollectionView(CrudView):
   @route('/<id>/export/', methods=['GET'])
   def export_collection(self, id: int):
     """
-    Remove media from a collection
+    Export a collection as a ZIP file
     """
     zip_url = export_zip(id)
     if request.args.get('redirect') == '1':
