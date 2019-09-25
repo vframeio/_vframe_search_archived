@@ -1,3 +1,4 @@
+
 # API Routes
 
 The VFrame Search application incorporates a RESTful API for running searches
@@ -26,39 +27,39 @@ Create a new collection.
 * JSON params: title, username, notes, archived (boolean)
 * Implemented in CollectionView:post
 
-### DELETE /api/v1/collection/<id>/
+### DELETE /api/v1/collection/[id]/
 
 Delete a collection.
 
 * Implemented in CollectionView:delete
 
-### GET /api/v1/collection/<id>/
+### GET /api/v1/collection/[id]/
 
 Fetch a single collection.
 
 * Implemented in CollectionView:get
 
-### PUT /api/v1/collection/<id>/
+### PUT /api/v1/collection/[id]/
 
 Update a collection.
 
 * JSON params: title, username, notes, archived (boolean)
 * Implemented in CollectionView:put
 
-### GET /api/v1/collection/<id>/export/
+### GET /api/v1/collection/[id]/export/
 
 Export a collection as a ZIP file
 
 * Implemented in CollectionView:export_collection
 
-### POST /api/v1/collection/<id>/media/
+### POST /api/v1/collection/[id]/media/
 
 Add media to a collection.
 
 * JSON params: media_id, username
 * Implemented in CollectionView:add_collection_media
 
-### DELETE /api/v1/collection/<id>/media/<media_id>/
+### DELETE /api/v1/collection/[id]/media/[media_id]/
 
 Remove media from a collection.
 
@@ -80,19 +81,19 @@ Create a new feature.
 * JSON params: active (boolean), modelzoo_name, index_type, username
 * Implemented in FeatureView:post
 
-### DELETE /api/v1/feature/<id>/
+### DELETE /api/v1/feature/[id]/
 
 Delete a feature.
 
 * Implemented in FeatureView:delete
 
-### GET /api/v1/feature/<id>/
+### GET /api/v1/feature/[id]/
 
 Fetch a single feature.
 
 * Implemented in FeatureView:get
 
-### PUT /api/v1/feature/<id>/
+### PUT /api/v1/feature/[id]/
 
 Update a feature.
 
@@ -109,7 +110,7 @@ List all media.
 * Query string params: offset, limit, sort (id, date), order (asc, desc)
 * Implemented in MediaView:index
 
-### GET /api/v1/media/id/<id>/
+### GET /api/v1/media/id/[id]/
 
 Fetch a single media by ID.
 
@@ -127,7 +128,7 @@ Fetch a random media.
 
 * Implemented in MediaView:random
 
-### GET /api/v1/media/sha256/<string:hash>/
+### GET /api/v1/media/sha256/[string:hash]/
 
 Fetch a single media by SHA256.
 
@@ -142,7 +143,7 @@ List all models.
 
 * Implemented in ModelzooView:index
 
-### GET /api/v1/modelzoo/name/<string:name>/
+### GET /api/v1/modelzoo/name/[string:name]/
 
 Fetch a single model by name.
 
@@ -157,40 +158,40 @@ Return information about the currently loaded model and feature index.
 
 * Implemented in SearchView:info
 
-### GET /api/v1/search/load/<id>/
+### GET /api/v1/search/load/[id]/
 
 Load a feature index.
 
 * Implemented in SearchView:load
 
-### GET /api/v1/search/load_detection_model/<string:key>/
+### GET /api/v1/search/load_detection_model/[string:key]/
 
 Load a detection model.
 
 * Implemented in SearchView:load_detection_model
 
-### GET /api/v1/search/media/<id>/
+### GET /api/v1/search/media/[id]/
 
 Query the model with a media object (by id).
 
 * Query string params: offset, limit
 * Implemented in SearchView:media
 
-### GET /api/v1/search/random/<string:seed>/
+### GET /api/v1/search/random/[string:seed]/
 
 Fetches a random media w/ seed.
 
 * Query string params: offset, limit
 * Implemented in SearchView:random
 
-### GET /api/v1/search/sha256/<string:hash>/
+### GET /api/v1/search/sha256/[string:hash]/
 
 Query the model with a media object (by sha256)
 
 * Query string params: offset, limit
 * Implemented in SearchView:sha256
 
-### GET /api/v1/search/upload/<id>/
+### GET /api/v1/search/upload/[id]/
 
 Query the model with something we already uploaded
 
@@ -251,13 +252,13 @@ Upload a new file.
 * JSON params: username
 * Implemented in UploadView:post
 
-### DELETE /api/v1/upload/<id>/
+### DELETE /api/v1/upload/[id]/
 
 Delete an uploaded file.
 
 * Implemented in UploadView:delete
 
-### GET /api/v1/upload/<id>/
+### GET /api/v1/upload/[id]/
 
 Fetch a single upload.
 

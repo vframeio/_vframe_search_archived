@@ -79,7 +79,7 @@ def cli(ctx, sort):
     doc = doc.strip().replace('{model}', view_model.lower()).replace('{jsonparams}', view_jsonparams)
     lines = [line.strip() for line in doc.split("\n")]
     view_class = view_func.__class__
-    heading = "### {} {}".format(methods, rule.rule)
+    heading = "### {} {}".format(methods, rule.rule.replace("<", "[").replace(">", "]"))
 
     if last_model != view_model:
       last_model = view_model
