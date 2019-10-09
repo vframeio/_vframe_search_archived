@@ -14,7 +14,10 @@ Before extracting features you'll need a directory of images to process. You can
 ```
 for f in videos/*.mp4; do
     fn=$(basename "$f" | cut -d. -f1);
-    echo "Procedssing: $fn";
+    echo "Processing: $fn";
     ffmpeg -i videos/$f -r 1/5 "still_frames/$fn"_%05d.jpg;
 done
 ```
+
+If you are using your own set of images, ensure that they are named in
+a similar format (uniqueid_frameno).
