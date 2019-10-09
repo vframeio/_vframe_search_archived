@@ -4,7 +4,7 @@ import util from '../util'
 /*
 for our crud events, create corresponding actions
 the actions fire a 'loading' event, call the underlying api method, and then resolve.
-so you can do ... 
+so you can do ...
   import { folderActions } from '../../api'
   folderActions.index({ module: 'samplernn' })
   folderActions.show(12)
@@ -14,7 +14,7 @@ so you can do ...
   folderActions.upload(12, form_data)
 */
 
-export { util, parser }
+export { util }
 
 export const actions = [
   'collection',
