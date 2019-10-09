@@ -19,7 +19,7 @@ We developed the frontend using Node v10 (LTS).  We recommend using `nvm` to man
 
 ```
 npm install
-npm run build
+npm run build:dev
 ```
 
 ### MySQL

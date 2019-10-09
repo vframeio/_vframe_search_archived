@@ -14,7 +14,7 @@ VFrame Search is an image search engine integrating neural networks for indexing
 After installing Docker and docker-compose, clone this repo and spin up the Docker containers:
 
 ```
-git clone https://github.com/adamhrv/vframe_search
+git clone https://github.com/vframeio/vframe_search
 cd vframe_search
 docker-compose up --build -d
 docker-compose logs -f
