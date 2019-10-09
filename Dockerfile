@@ -62,7 +62,7 @@ RUN ln -sf ${NVM_DIR}/versions/node/v${NODE_VERSION}/bin/node /usr/bin/nodejs
 RUN ln -sf ${NVM_DIR}/versions/node/v${NODE_VERSION}/bin/node /usr/bin/node
 RUN ln -sf ${NVM_DIR}/versions/node/v${NODE_VERSION}/bin/npm /usr/bin/npm
 
-# [ build conda env ] 
+# [ build conda env ]
 
 ENV VFRAME_SEARCH_DIR vframe_search
 WORKDIR ${USER_DIR}/${VFRAME_SEARCH_DIR}/

@@ -12,17 +12,17 @@ from app.utils.click_factory import ClickComplex
 
 # click cli factory
 cc = ClickComplex.create(cfg.DIR_COMMANDS_PROCESS)
- 
+
 # --------------------------------------------------------
 # CLI
 # --------------------------------------------------------
 @click.group(cls=cc, chain=False)
-@click.option('-v', '--verbose', 'verbosity', count=True, default=4, 
+@click.option('-v', '--verbose', 'verbosity', count=True, default=4,
   show_default=True,
   help='Verbosity: -v DEBUG, -vv INFO, -vvv WARN, -vvvv ERROR, -vvvvv CRITICAL')
 @click.pass_context
 def cli(ctx, **kwargs):
-  """\033[1m\033[94mVFRAME:Image Processing Modules\033[0m                                                
+  """\033[1m\033[94mVFRAME:Image Processing Modules\033[0m
   """
   ctx.opts = {}
   # init logger
@@ -67,7 +67,7 @@ def process_commands(processors, **kwargs):
   sink.close() # this executes the whole pipeline.
                # however it is unnecessary, as close() would be automatically
                # called when sink goes out of scope here.
-                 
+
 def processor(f):
   """Helper decorator to rewrite a function so that it returns another
   function from it.
