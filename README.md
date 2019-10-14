@@ -24,9 +24,10 @@ Navigate to `http://0.0.0.0:5000/` to use the webapp.
 
 ### 2. Import your images
 
-The folder `data_store/incoming/` is shared with the VFrame Search API instance, so you must move files there first before you can import them. You can download an example data set [here](vframe.ams3.digitaloceanspaces.com/v2/dev/keyframes/keyframes_1k.zip). If you are looking to use your own data, make sure that the imag files are appropriately formatted by copying (that structure)[docs/images.md].
+The folder `data_store/incoming/` is shared with the VFrame Search API instance, so you must move files there first before you can import them. You can download an example data set [here](vframe.ams3.digitaloceanspaces.com/v2/dev/keyframes/keyframes_1k.zip). If you are looking to use your own data, make sure that the image files are appropriately formatted by copying (that structure)[docs/images.md].
 
 ```
+# copy unzipped folder of images to data_store/incoming
 cp -r ~/Downloads/keyframes_1k/ data_store/incoming/
 docker exec -it vframe_search_api_1 python cli_data.py add -i ../data_store/incoming/
 ```
