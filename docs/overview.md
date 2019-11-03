@@ -28,7 +28,7 @@ The web frontend offers an intuitive way to search images using other images, as
 
 ### Search
 
-The search engine allows access to a variety of indexed features, which can be used to search by image.  Images can be uploaded.  Search by a random image from the database is also avaiable.  Starting from a single image, you can browse the database either by searching on search results, or by viewing the rest of the video frames when the result comes from a video.  As the models used can be quite large, only one feature can be used at a time to perform searches.
+The search engine allows access to a variety of indexed features, which can be used to search by image.  Images can be uploaded.  Search by a random image from the database is also available.  Starting from a single image, you can browse the database either by searching on search results, or by viewing the rest of the video frames when the result comes from a video.  As the models used can be quite large, only one feature can be used at a time to perform searches.
 
 ### Collections
 
