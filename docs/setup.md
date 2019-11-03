@@ -1,6 +1,6 @@
 # Setup
 
-There are two ways of running the VFrame Search application: you can use Docker, or you can install everything by hand.  Following setup, please refer to steps 2-4 in the (README.md)[../README.md].
+There are two ways of running the VFrame Search application: you can use Docker, or you can install everything by hand.  Following setup, please refer to steps 2-4 in the [README.md](../README.md).
 
 ## Manual Installation
 
