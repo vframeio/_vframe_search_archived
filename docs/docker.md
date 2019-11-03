@@ -25,7 +25,7 @@ docker run -i -t --network vframe_search_dev --entrypoint /bin/bash vframe_searc
 docker system prune
 ```
 
-Once Docker is running, please follow steps 2-4 from (README.md)[../README.md].
+Once Docker is running, please follow steps 2-4 from [README.md](../README.md).
 
 ## Errata
 
