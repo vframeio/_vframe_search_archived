@@ -32,7 +32,7 @@ Before extract features you'll need a directory of images to process. You can us
 ```
 for f in videos/*.mp4;do 
     fn=$(basename "$f" | cut -d. -f1);
-    echo "Procedssing: $fn";
+    echo "Processing: $fn";
     ffmpeg -i videos/$f -r 1/5 "still_frames/$fn"_%05d.jpg;
 done
 ```
@@ -41,13 +41,13 @@ done
 
 Next, build the feature vector index:
 
-`python cli_simple.py features -i ../data_store/still_frames/ -o ../data_store/still_frames.pkl`
+`./cli.py process features -i ../data_store/still_frames/ -o ../data_store/still_frames.pkl`
 
 ## Run Flask Server
 
-Finally, start the Flask sever:
+Finally, start the simple Flask sever:
 
-- `python cli_simple.py run -i ../keyframes.pkl`
+- `./cli.py server simple -i ../keyframes.pkl`
 
 
 ## API
@@ -66,4 +66,4 @@ curl -X POST \
 
 Try download another classification model and generating a different index. Results will vary depending on how the DNNs were trained. For example networks trained on ImageNet are biased towards objects appearing centered in the image. The Places365 DNN should work better at diffrentiating between more scene-based imagery.
 
-Show all Model Zoo models: `python cli_models.py download --help`
+Show all Model Zoo models: `./cli.py models download --help`

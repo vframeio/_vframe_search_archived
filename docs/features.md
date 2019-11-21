@@ -6,8 +6,8 @@ VFRAME Search uses CNN image features for content-based image similarity search.
 
 Extract features to pickle file:
 
-- options: `python cli_image.py features --help`
-- example: `python cli_proc.py features -i ../data_store_local/keyframes/ -o ../data_store_local/out.pkl -m caffe_googlenet_places365`
+- options: `./cli.py image features --help`
+- example: `/cli.py process features -i ../data_store_local/keyframes/ -o ../data_store_local/out.pkl -m caffe_googlenet_places365`
 
 
 ## Extract

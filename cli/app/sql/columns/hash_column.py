@@ -21,16 +21,3 @@ class HashColumn(TypeDecorator):
   def adapt(self, impltype):
     """Produce an adapted form of this type, given an impl class."""
     return VarBinaryHex()
-
-# def process_bind_param(self, value, dialect):
-#   # encode value as a binary
-#   if value:
-#     return bytes(value, 'utf-8')
-
-# def bind_expression(self, bindvalue):
-#   # convert the bind's type from String to HEX encoded 
-#   return func.HEX(bindvalue)
-
-# def column_expression(self, col):
-#   # convert select value from HEX encoded to String
-#   return func.UNHEX(col)

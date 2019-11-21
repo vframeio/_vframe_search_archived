@@ -7,23 +7,10 @@ import logging
 
 import colorlog
 
-from app.models import types
-
-
 class Logger:
   
-
-  LOGGER_NAME = 'vframe'
-  LOGLEVELS = {
-    types.LogLevel.DEBUG: logging.DEBUG,
-    types.LogLevel.INFO: logging.INFO,
-    types.LogLevel.WARN: logging.WARN,
-    types.LogLevel.ERROR: logging.ERROR,
-    types.LogLevel.CRITICAL: logging.CRITICAL
-  }
-  LOGLEVEL_OPT_DEFAULT = types.LogLevel.DEBUG.name
+  LOGGER_NAME = 'VFRAME'
   LOGFILE_FORMAT = "%(log_color)s%(levelname)-8s%(reset)s %(cyan)s%(filename)s:%(lineno)s:%(bold_cyan)s%(funcName)s() %(reset)s%(message)s"
-
 
   def __init__(self):
     pass
@@ -49,6 +36,10 @@ class Logger:
     
     logger = logging.getLogger(Logger.LOGGER_NAME)
     logger.setLevel(loglevel)
+    
+    # remove existing handlers
+    for handler in logger.handlers:
+      logger.removeHandler(handler)
 
     if logfile:
       # create file handler which logs even debug messages

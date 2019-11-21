@@ -49,7 +49,7 @@ VALID_VIDEO_EXTS = ['mp4', 'mov']
 # Logger: use local app logging
 # ------------------------------------------
 
-log = logging.getLogger('vframe')
+log = logging.getLogger('VFRAME')
 
 
 # ------------------------------------------
@@ -57,6 +57,11 @@ log = logging.getLogger('vframe')
 # ------------------------------------------
 
 def glob_exts(dir_in, exts, recursive=False):
+  """Globs folders for multiple extensions
+  :param dir_in: input directory
+  :param exts: extensions as jpg, png, mp4
+  :param recursive: use recursive globbing
+  """
   files = []
   for ext in exts:
     if recursive:

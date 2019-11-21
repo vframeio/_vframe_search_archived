@@ -14,7 +14,7 @@ so you can do ...
   folderActions.upload(12, form_data)
 */
 
-export { util, parser }
+export { util }
 
 export const actions = [
   'collection',

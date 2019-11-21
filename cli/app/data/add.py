@@ -15,7 +15,7 @@ import cv2 as cv
 
 from app.settings import app_cfg
 from app.utils import log_utils, file_utils
-from app.sql.common import Session, Media, MediaFeature
+from app.sql.common import Session, Media
 
 # ------------------------------------------------
 # start
@@ -75,9 +75,9 @@ def add_folder(log, opt_dir_in, opt_no_check):
     session.add(media)
     session.commit()
 
-    media_feature = MediaFeature(media_id=media.id)
-    session.add(media_feature)
-    session.commit()
+    # media_feature = MediaFeature(media_id=media.id)
+    # session.add(media_feature)
+    # session.commit()
 
   print("Found {} images".format(len(fp_images)))
   print("Added {} images".format(len(fp_images) - len(errors)))

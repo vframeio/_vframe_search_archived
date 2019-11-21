@@ -17,8 +17,9 @@ from app.utils import click_utils
   type=types.ModelZooClickVar,
   show_default=True,
   help=click_utils.show_help(types.ModelZoo))
+@click.option('-r', '--recursive', 'opt_recursive', is_flag=True)
 @click.pass_context
-def cli(ctx, opt_dir_in, opt_fp_out, opt_model_enum):
+def cli(ctx, opt_dir_in, opt_fp_out, opt_model_enum, opt_recursive):
   """Converts directory of images to feature vectors"""
 
   # ------------------------------------------------
@@ -48,7 +49,7 @@ def cli(ctx, opt_dir_in, opt_fp_out, opt_model_enum):
   cvmodel = dnn_factory.from_enum(opt_model_enum)
 
   exts = ('png', 'jpg', 'jpeg')
-  fp_images = file_utils.glob_exts(opt_dir_in, exts)
+  fp_images = file_utils.glob_exts(opt_dir_in, exts, recursive=True)
 
   features = []
   mediaRecords = []

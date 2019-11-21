@@ -4,10 +4,10 @@ from sqlalchemy.orm import relationship
 import sqlalchemy.sql.functions as func
 from wtforms_alchemy import ModelForm
 
-from app.sql.common import db
+from app.sql.common import Base
 from app.sql.models.media import Media
 
-class CollectionMedia(db.Model):
+class CollectionMedia(Base):
   """Table for storing references to various media"""
   __tablename__ = 'collection_media'
   collection_id = Column(Integer, ForeignKey('collection.id'), primary_key=True)

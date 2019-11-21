@@ -5,7 +5,7 @@ from sqlalchemy_utc import UtcDateTime, utcnow
 import sqlalchemy.sql.functions as func
 from wtforms_alchemy import ModelForm
 
-from app.sql.common import db
+from app.sql.common import Base
 from app.sql.columns.hash_column import HashColumn
 from app.sql.columns.media_type_column import MediaTypeColumn
 from app.models.types import MediaTypeIndex, MediaTypeName
@@ -15,7 +15,7 @@ from app.settings import app_cfg
 
 from os.path import join
 
-class Media(db.Model):
+class Media(Base):
   """Table for storing references to various media"""
   __tablename__ = 'media'
   id = Column(Integer, primary_key=True)
@@ -27,8 +27,8 @@ class Media(db.Model):
   created_at = Column(UtcDateTime(), default=utcnow())
 
   # children = relationship("Media")
-  media_features = relationship("MediaFeature")
-  media_metadata = relationship("MediaMetadata")
+  # media_features = relationship("MediaFeature")
+  # media_metadata = relationship("MediaMetadata")
 
   def toJSON(self):
     return {

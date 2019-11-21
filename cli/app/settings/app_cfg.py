@@ -1,8 +1,9 @@
 import os
 from os.path import join
 import collections
-from dotenv import load_dotenv
+import logging
 
+from dotenv import load_dotenv
 import yaml
 
 from app.models import types
@@ -11,6 +12,8 @@ from pathlib import Path
 import codecs
 codecs.register(lambda name: codecs.lookup('utf8') if name == 'utf8mb4' else None)
 
+LOG = logging.getLogger('VFRAME')
+
 # -----------------------------------------------------------------------------
 # .env config for keys
 # -----------------------------------------------------------------------------
@@ -18,6 +21,23 @@ codecs.register(lambda name: codecs.lookup('utf8') if name == 'utf8mb4' else Non
 # DIR_DOTENV = join(DIR_APP, '.env')
 load_dotenv() # dotenv_path=DIR_DOTENV)
 PRODUCTION = os.getenv('ENV') == 'production'
+
+# -----------------------------------------------------------------------------
+# Click config
+# -----------------------------------------------------------------------------
+
+
+CLICK_GROUPS = {
+  'data': 'commands/data',
+  'docs': 'commands/docs',
+  'image': 'commands/image',
+  'models': 'commands/custom',
+  'server': 'commands/server',
+  'process': 'commands/process',
+  'db': '',
+  'flask': '',
+  'flask-socket': '',
+}
 
 # -----------------------------------------------------------------------------
 # File I/O

@@ -1,7 +1,7 @@
 # ------------------------------------------------------
 #
 # VFRAME / VCAT Search Engine
-# https://github.com/adamhrv/vframe_search
+# https://github.com/vframeio/vframe_search
 #
 # ------------------------------------------------------
 

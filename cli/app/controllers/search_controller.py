@@ -10,7 +10,6 @@ import time
 from app.sql.common import db, Session
 from app.sql.models.feature_type import FeatureType
 from app.sql.models.media import Media
-from app.sql.models.media_feature import MediaFeature
 from app.sql.models.upload import Upload
 from app.indexes.single_feature_index import SingleFeatureIndex
 
@@ -184,7 +183,7 @@ class SearchView(FlaskView):
     else:
       rand = randrange(0, count)
     while True:
-      media = db.session.query(Media)[rand]         # FIXME: convert to MediaFeature
+      media = db.session.query(Media)[rand]
       if media.mediaType == 'image' or media.mediaType == 'video_frame':
         break
       else:

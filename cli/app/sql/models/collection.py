@@ -4,10 +4,10 @@ from sqlalchemy_utc import UtcDateTime, utcnow
 import sqlalchemy.sql.functions as func
 from wtforms_alchemy import ModelForm
 
-from app.sql.common import db
+from app.sql.common import Base
 from app.sql.models.collection_media import CollectionMedia
 
-class Collection(db.Model):
+class Collection(Base):
   """Table for storing references to various media"""
   __tablename__ = 'collection'
   id = Column(Integer, primary_key=True)

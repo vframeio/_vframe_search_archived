@@ -2,11 +2,11 @@
 
 The VFrame Search application comes with various scripts for accessing the indexing and image processing functions.  These scripts were developed using [Click](https://click.palletsprojects.com/en/7.x/). Wrapper scripts live inside `cli/` and the commands themselves are in `cli/app/commands/`.  Scripts should be run within the Conda environment (loaded by default inside Docker) from the `cli/` directory.  All commands can be run using `--help` for more information.
 
-## cli_data.py
+## CLI Commands
 
 Commands dealing with data import, export, and indexing.  Normally the scripts should be run in this order: add, extract, index.  Extract and index are also available through the website.
 
-### cli_data.py add
+### data add
 
 | Parameter    | Description                    |
 | ------------ | ------------------------------ |
@@ -15,7 +15,7 @@ Commands dealing with data import, export, and indexing.  Normally the scripts s
 
 Copies a folder of images into the database.
 
-### cli_data.py export
+### data export
 
 | Parameter       | Description                    |
 | --------------- | ------------------------------ |
@@ -23,48 +23,65 @@ Copies a folder of images into the database.
 
 Export a collection as a ZIP file containing all media.
 
-### cli_data.py extract
+### data extract
 
 Extract feature vectors based on the currently configured [feature types](http://0.0.0.0:5000/feature/).
 
-### cli_data.py index
+### data index
 
 Rebuild all feature vector indexes.
 
-### cli_data.py query
+### data query
 
 Runs a test query using media from the database.
 
 
-## cli_docs.py
+## db.py
+
+Manages running database migrations.  This is simply a copy of the [Alembic CLI script](https://alembic.sqlalchemy.org/en/latest/api/commands.html).  These are the most important commands for development:
+
+### db.py upgrade head
+
+Upgrade the database to the latest migration.
+
+### db.py current
+
+Show current migration.
+
+### db revision --autogenerate -m 'message'
+
+Create a new migration automatically, based on changes to the models.
+
+
+## docs
 
 Helper scripts for generating documentation.
 
-### cli_docs.py routes
+### docs routes
 
 Generates (API documentation)[api.md].
 
 
-## cli_flask.py
+## flask
 
 Commandline interface for Flask.  Mainly used for running the development server.  More information exists on [Flask's documentation](https://flask.palletsprojects.com/en/1.1.x/cli/).
 
-### cli_flask.py run
+### flask run
 
 Runs the web server.  Background tasks not enabled.
 
-### cli_flask.py socket
+### flask socket
 
 Runs the web server with socket support.  Background tasks accessible.
 
-### cli_flask.py routes
+### flask routes
 
 Print Flask's URL routing table.
 
 
-## cli_image.py
+## image
 
-### cli_image.py features
+### image features
 
 | Parameter     | Description                    |
 | ------------- | ------------------------------ |
@@ -75,9 +92,9 @@ Print Flask's URL routing table.
 Converts directory of images to feature vectors.  Deprecated.
 
 
-## cli_models.py
+## models
 
-### cli_models.py download
+### models download
 
 | Parameter    | Description                    |
 | ------------ | ------------------------------ |
@@ -89,7 +106,7 @@ Converts directory of images to feature vectors.  Deprecated.
 
 Download DNN models.  A full list of models can be found by running this script with `--help`.
 
-### cli_models.py layers
+### models layers
 
 | Parameter    | Description                    |
 | ------------ | ------------------------------ |
@@ -97,7 +114,7 @@ Download DNN models.  A full list of models can be found by running this script 
 
 Print DNN layer info to find feature vector layer.
 
-### cli_models.py pbtxt_graph
+### models pbtxt_graph
 
 | Parameter     | Description                    |
 | ------------- | ------------------------------ |
@@ -108,7 +125,7 @@ Print DNN layer info to find feature vector layer.
 
 Creates OpenCV DNN specific graph .pbtxt
 
-### cli_models.py pbtxt_labelmap
+### models pbtxt_labelmap
 
 | Parameter     | Description                    |
 | ------------- | ------------------------------ |
@@ -117,7 +134,7 @@ Creates OpenCV DNN specific graph .pbtxt
 
 Convert TF pbtxt label map to label lines txt
 
-### cli_models.py sync
+### models sync
 
 | Parameter    | Description                    |
 | ------------ | ------------------------------ |
@@ -127,7 +144,7 @@ Convert TF pbtxt label map to label lines txt
 
 Sync models to S3 storage.
 
-### cli_models.py test
+### models test
 
 | Parameter    | Description                    |
 | ------------ | ------------------------------ |
@@ -138,6 +155,6 @@ Sync models to S3 storage.
 Test ModelZoo models.
 
 
-## cli_simple.py
+## simple
 
 Simple image search (deprecated) using models from our model zoo.  For more information, see (simple-search.md)[simple-search.md].

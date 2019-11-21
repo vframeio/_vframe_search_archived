@@ -27,6 +27,14 @@ docker system prune
 
 Once Docker is running, please follow steps 2-4 from (README.md)[../README.md].
 
+## Docker and MySQL
+
+The first time you spin up the docker instance, the MySQL database will be empty, and takes a few seconds to initialize.  Therefore you must run the migration command to finish setting it up before you can start importing media.
+
+```
+docker exec -it vframe_search_api_1 python cli_db.py upgrade head
+```
+
 ## Errata
 
 Could not resolve 'archive.ubuntu.com' can be fixed by making the following changes:

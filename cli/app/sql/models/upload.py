@@ -3,7 +3,7 @@ import sqlalchemy.sql.functions as func
 from sqlalchemy_utc import UtcDateTime, utcnow
 from wtforms_alchemy import ModelForm
 
-from app.sql.common import db
+from app.sql.common import db, Base
 from app.sql.columns.hash_column import HashColumn
 from app.sql.columns.media_type_column import MediaTypeColumn
 
@@ -12,7 +12,7 @@ from app.settings import app_cfg
 
 from os.path import join
 
-class Upload(db.Model):
+class Upload(Base):
   """Table for storing references to various media"""
   __tablename__ = 'uploads'
   id = Column(Integer, primary_key=True)
