@@ -1,0 +1,910 @@
+# Sources
+# https://github.com/opencv/opencv/blob/master/samples/dnn/models.yml
+
+################################################################################
+#
+# Body pose models
+#
+################################################################################
+
+# human pose
+
+
+################################################################################
+#
+# Scene text detection models
+#
+################################################################################
+
+# EAST
+# Opencv text detector
+
+
+################################################################################
+#
+# Scene text recognition models
+#
+################################################################################
+
+# CTPN
+
+
+################################################################################
+#
+# Object recognition models
+#
+################################################################################
+
+# flickr ID
+# logo
+# person re-id
+
+
+
+
+################################################################################
+#
+# Darknet Object detection models
+#
+################################################################################
+
+# ultralytics_yolo_v3_coco:
+#   name: Ultralytics YoloV3 COCO
+#   task_type: object_detection
+#   framework: onnx
+#   model: onnx/detection/ultralytics_yolo_v3_coco/yolov3.onnx
+#   config: onnx/detection/ultralytics_yolo_v3_coco/yolov3_deploy.cfg
+#   labels: onnx/detection/data/labels/coco.txt
+#   mean: [0,0,0]
+#   scale: 0.00392156862745098  # 1/255
+#   width: 416
+#   height: 416
+#   rgb: true
+#   crop: false
+#   backend: DEFAULT
+#   target: CPU
+#   threshold: 0.50
+#   active: true
+#   nms: false
+#   tested: false
+
+darknet_yolo_v3_vframe_synth_01:
+  name: Yolo V3 Synthetic Test Cluster Munitions, Sign
+  task_type: object_detection
+  framework: darknet
+  model: darknet/detection/yolo_v3_synthetic_02/yolov3_6000.weights
+  config: darknet/detection/yolo_v3_synthetic_02/yolov3_deploy.cfg
+  labels: darknet/detection/yolo_v3_synthetic_02/classes.txt
+  mean: [0,0,0]
+  scale: 0.00392156862745098  # 1/255
+  width: 416
+  height: 416
+  rgb: true
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.250
+  active: true
+  nms: true
+  tested: false
+
+darknet_yolo_v3_voc_hausgemacht:
+  name: Yolo V3 VOC Hausgemacht
+  task_type: object_detection
+  framework: darknet
+  model: darknet/detection/yolo_v3_voc_hausgemacht/yolov3-voc_best.weights
+  config: darknet/detection/yolo_v3_voc_hausgemacht/yolov3-voc_deploy.cfg
+  labels: darknet/detection/yolo_v3_voc_hausgemacht/labels.txt
+  mean: [0,0,0]
+  scale: 0.00392156862745098  # 1/255
+  width: 608
+  height: 608
+  rgb: true
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.50
+  active: true
+  nms: true
+  tested: true
+
+darknet_yolo_v3_vframe_munitions_v09b:
+  name: Yolo V3 VFRAME Munitions V09b
+  task_type: object_detection
+  framework: darknet
+  model: darknet/detection/yolo_v3_vframe_munitions_v09b/yolov3_40000.weights
+  config: darknet/detection/yolo_v3_vframe_munitions_v09b/yolov3_deploy.cfg
+  labels: darknet/detection/yolo_v3_vframe_munitions_v09b/labels.txt
+  mean: [0,0,0]
+  scale: 0.00392156862745098  # 1/255
+  width: 608
+  height: 608
+  rgb: true
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.50
+  active: true
+  nms: true
+  tested: true
+
+darknet_yolo_v3_vframe_munitions_v04:
+  name: Yolo V3 VFRAME Munitions V04
+  task_type: object_detection
+  framework: darknet
+  model: darknet/detection/yolo_v3_vframe_munitions_v04/yolov3_deploy.weights
+  config: darknet/detection/yolo_v3_vframe_munitions_v04/yolov3_deploy.cfg
+  labels: darknet/detection/yolo_v3_vframe_munitions_v04/labels.txt
+  mean: [0,0,0]
+  scale: 0.00392156862745098  # 1/255
+  width: 608
+  height: 608
+  rgb: true
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.50
+  active: true
+  nms: true
+  tested: true
+
+darknet_yolo_v3_openimages:
+  name: Yolo V3 OpenImages
+  task_type: object_detection
+  framework: darknet
+  model: darknet/detection/yolo_v3_openimages/yolov3_openimages.weights
+  config: darknet/detection/yolo_v3_openimages/yolov3_openimages.cfg
+  labels: darknet/detection/data/labels/openimages.txt
+  mean: [0,0,0]
+  scale: 0.00392156862745098  # 1/255
+  width: 608
+  height: 608
+  rgb: true
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.50
+  active: true
+  tested: true
+
+darknet_yolo_v3_coco:
+  name: Yolo V3 COCO 608
+  task_type: object_detection
+  framework: darknet
+  model: darknet/detection/yolo_v3_coco/yolov3.weights
+  config: darknet/detection/yolo_v3_coco/yolov3.cfg
+  labels: darknet/detection/data/labels/coco.txt
+  mean: [0,0,0]
+  scale: 0.00392156862745098  # 1/255
+  width: 608
+  height: 608
+  rgb: true
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.50
+  active: true
+  tested: true
+
+
+
+################################################################################
+#
+# Caffe Object detection models
+#
+################################################################################
+
+opencv_face_detector:
+  name: OpenCV SSD Face Detector
+  task_type: object_detection
+  framework: caffe
+  model: caffe/detection/opencv_face_detector/opencv_face_detector.caffemodel
+  config: caffe/detection/opencv_face_detector/opencv_face_detector.prototxt
+  labels: 'caffe/detection/data/labels/face.txt'
+  mean: [104, 177, 123]
+  scale: 1.0
+  width: 300
+  height: 300
+  rgb: false
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.8
+  active: true
+
+caffe_ssd_mobilenet_voc:
+  name: MobileNet SSD at 300px on VOC
+  task_type: object_detection
+  framework: caffe
+  model: caffe/detection/mobilenet_ssd/mobilenet_ssd.caffemodel
+  config: caffe/detection/mobilenet_ssd/mobilenet_ssd.prototxt
+  labels: caffe/detection/data/labels/face.txt
+  mean: [127.5, 127.5, 127.5]
+  scale: 0.00784313725490196  # 1 / 127.5 ?
+  width: 300
+  height: 300
+  rgb: false  # not sure ?
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.8
+  active: true
+  nms: true
+  
+
+################################################################################
+#
+# TensorFlow Object Detection
+#
+################################################################################
+
+tf_ssd_mobilenet_v1_coco:
+  name: SSD MobileNet V1 on COCO
+  task_type: object_detection
+  framework: tensorflow
+  model: tensorflow/detection/ssd_mobilenet_v1_coco_2017_11_17/frozen_inference_graph.pb
+  config: tensorflow/detection/ssd_mobilenet_v1_coco_2017_11_17/opencv_dnn_graph.pbtxt  # converted to dnn format
+  labels: 'tensorflow/detection/data/labels/coco_80.txt'
+  mean: [0,0,0]
+  scale: 1.0
+  width: 300
+  height: 300
+  rgb: false
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.8
+  active: true
+  nms: true
+  tested: true
+  
+
+tf_ssd_mobilenet_v1_ppn_coco:
+  name: SSD MobileNet V1 PPN on COCO
+  task_type: object_detection
+  framework: tensorflow
+  model: tensorflow/detection/ssd_mobilenet_v1_ppn_shared_box_predictor_300x300_coco14_sync_2018_07_03/frozen_inference_graph.pb
+  config: tensorflow/detection/ssd_mobilenet_v1_ppn_shared_box_predictor_300x300_coco14_sync_2018_07_03/opencv_dnn_graph.pbtxt  # converted to dnn format
+  labels: 'tensorflow/detection/data/labels/coco_80.txt'
+  notes: Poor performance, consider removing
+  mean: [0,0,0]
+  scale: 1.0
+  width: 300
+  height: 300
+  rgb: false
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.7
+  active: true
+  nms: true
+  tested: true
+  
+
+tf_ssd_mobilenet_v2_coco:
+  name: SSD MobileNet V2 on COCO
+  task_type: object_detection
+  framework: tensorflow
+  model: tensorflow/detection/ssd_mobilenet_v2_coco_2018_03_29/frozen_inference_graph.pb
+  config: tensorflow/detection/ssd_mobilenet_v2_coco_2018_03_29/opencv_dnn_graph.pbtxt  # converted to dnn format
+  labels: 'tensorflow/detection/data/labels/coco_80.txt'
+  mean: [0,0,0]
+  scale: 1.0
+  width: 300
+  height: 300
+  rgb: false
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.8
+  active: true
+  nms: true
+  tested: true
+  
+
+tf_ssd_mobilenet_v2_oid_v4:
+  name: SSD MobileNet V2 on OpenImages V4
+  task_type: object_detection
+  framework: tensorflow
+  model: tensorflow/detection/ssd_mobilenet_v2_oid_v4_2018_12_12/frozen_inference_graph.pb
+  config: tensorflow/detection/ssd_mobilenet_v2_oid_v4_2018_12_12/opencv_dnn_graph.pbtxt  # converted to dnn format
+  labels: 'tensorflow/detection/data/labels/oid_v4_label_map.txt'  # added 0, Background
+  mean: [0,0,0]
+  scale: 1.0
+  width: 300
+  height: 300
+  rgb: false
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.5  # use lower threshold
+  active: true
+  classes: 601
+  nms: true
+  tested: true
+
+
+tf_ssd_inception_v2_coco:
+  name: SSD Inception V2 on COCO
+  task_type: object_detection
+  framework: tensorflow
+  model: tensorflow/detection/ssd_inception_v2_coco_2018_01_28/frozen_inference_graph.pb
+  config: tensorflow/detection/ssd_inception_v2_coco_2018_01_28/opencv_dnn_graph.pbtxt  # converted to dnn format
+  labels: 'tensorflow/detection/data/labels/coco_80.txt'
+  mean: [0,0,0]
+  scale: 1.0
+  width: 300
+  height: 300
+  rgb: false
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.7
+  active: true
+  nms: true
+  tested: true
+  
+
+tf_faster_rcnn_inception_v2_coco:
+  name: Faster RCNN Inception V2 on COCO
+  task_type: object_detection
+  framework: tensorflow
+  model: tensorflow/detection/faster_rcnn_inception_v2_coco_2018_01_28/frozen_inference_graph.pb
+  config: tensorflow/detection/faster_rcnn_inception_v2_coco_2018_01_28/opencv_dnn_graph.pbtxt  # converted to dnn format
+  labels: 'tensorflow/detection/data/labels/coco_79.txt'
+  mean: [0,0,0]
+  scale: 1.0
+  width: 300  # not sure about size
+  height: 300
+  rgb: false
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.8
+  active: true
+  nms: true
+
+tf_faster_rcnn_resnet50_coco:
+  name: Faster RCNN ResNet50 on COCO
+  task_type: object_detection
+  framework: tensorflow
+  model: tensorflow/detection/faster_rcnn_resnet50_coco_2018_01_28/frozen_inference_graph.pb
+  config: tensorflow/detection/faster_rcnn_resnet50_coco_2018_01_28/opencv_dnn_graph.pbtxt  # converted to dnn format
+  labels: 'tensorflow/detection/data/labels/coco_79.txt'
+  mean: [0,0,0]
+  scale: 1.0
+  width: 300  # not sure about size
+  height: 300
+  rgb: false
+  crop: false
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.7
+  active: true
+  nms: true
+  
+
+# faster_rcnn_inception_resnet_v2_atrous_oid:
+#   task_type: object_detection
+#   framework: tensorflow
+#   model: tensorflow/detection/faster_rcnn_inception_resnet_v2_atrous_oid_2018_01_28/frozen_inference_graph.pb
+#   config: tensorflow/detection/faster_rcnn_inception_resnet_v2_atrous_oid_2018_01_28/opencv_dnn_graph.pbtxt  # converted to dnn format
+#   labels: 'tensorflow/detection/data/labels/oid_bbox_trainable_label_map.txt'
+#   mean: [0,0,0]
+#   scale: 1.0
+#   width: 300  # not sure about size "min_dimension: 600, max_dimenmsion: 1024"
+#   height: 300
+#   rgb: false
+#   crop: false
+#   backend: DEFAULT
+#   target: CPU
+#   threshold: 0.15
+#   active: false
+#   tested: false
+#   nms: true
+  
+
+
+################################################################################
+#
+# Darknet Image classification models
+#
+################################################################################
+
+darknet_darknet53_448_imagenet:
+  name: Darknet53 at 256px on ImageNet
+  task_type: classification
+  framework: darknet
+  model: darknet/classification/darknet53_448/darknet53_448.weights
+  config: darknet/classification/darknet53_448/darknet53_448_deploy.cfg
+  labels: darknet/classification/data/labels/imagenet.txt
+  mean: [0, 0, 0]
+  scale: 0.00392156862745098  # 1/255
+  width: 448
+  height: 448
+  rgb: true
+  crop: false
+  features: conv_76  # or try avgpool_75:1024
+  dimensions: 1000
+  threshold: 0.25
+  active: true
+
+
+darknet_darknet19_448_imagenet:
+  name: Darknet19 at 448px on ImageNet
+  task_type: classification
+  framework: darknet
+  model: darknet/classification/darknet19_448/darknet19_448.weights
+  config: darknet/classification/darknet19_448/darknet19_448_deploy.cfg
+  labels: darknet/classification/data/labels/imagenet.txt
+  mean: [0, 0, 0]
+  scale: 0.00392156862745098  # 1/255
+  width: 448
+  height: 448
+  rgb: true
+  crop: false
+  features: avgpool_24  # needs verification, maybe avgpool_24
+  dimensions: 1000
+  threshold: 0.5
+  active: true
+  
+
+darknet_darknet19_256_imagenet:
+  name: Darknet19 at 256px on ImageNet
+  task_type: classification
+  framework: darknet
+  model: darknet/classification/darknet19/darknet19.weights
+  config: darknet/classification/darknet19/darknet19_deploy.cfg
+  labels: darknet/classification/data/labels/imagenet.txt
+  notes: dimensions do not match
+  mean: [0, 0, 0]
+  scale: 0.00392156862745098  # 1/255
+  width: 256 
+  height: 256
+  rgb: true
+  crop: false
+  features: avgpool_24  # this might not work
+  dimensions: 1000
+  dimensions: 0
+  threshold: 0.025
+  active: true
+  
+
+darknet_darknet_256_imagenet:
+  name: Darknet Densenet201 at 256px on ImageNet
+  task_type: classification
+  framework: darknet
+  model: darknet/classification/darknet/darknet.weights
+  config: darknet/classification/darknet/darknet_deploy.cfg
+  labels: darknet/classification/data/labels/imagenet.txt
+  mean: [0, 0, 0]
+  scale: 0.00392156862745098  # 1/255
+  width: 256 
+  height: 256
+  rgb: true
+  crop: false
+  features: avgpool_14
+  dimensions: 1000  # this might not work
+  threshold: 0.5
+  active: true
+  
+
+darknet_densenet201_256_imagenet:
+  name: Darknet densenet201 at 256px on ImageNet
+  task_type: classification
+  framework: darknet
+  model: darknet/classification/densenet201/densenet201.weights
+  config: darknet/classification/densenet201/densenet201_deploy.cfg
+  labels: darknet/classification/data/labels/imagenet.txt
+  notes: dimensions do not match
+  mean: [0, 0, 0]
+  scale: 0.00392156862745098  # 1/255
+  width: 256 
+  height: 256
+  rgb: true
+  crop: false
+  features: avgpool_303  # this might not work
+  dimensions: 1000
+  dimensions: 0
+  threshold: 0.5
+  active: true
+  
+
+darknet_extraction_256_imagenet:
+  name: Darknet Extraction at 256px on ImageNet
+  task_type: classification
+  framework: darknet
+  model: darknet/classification/extraction/extraction.weights
+  config: darknet/classification/extraction/extraction_deploy.cfg
+  labels: darknet/classification/data/labels/imagenet.txt
+  mean: [0, 0, 0]
+  scale: 0.00392156862745098  # 1/255
+  width: 256 
+  height: 256
+  rgb: true
+  crop: false
+  features: avgpool_25  # this might not work
+  dimensions: 1000
+  threshold: 0.5
+  active: true
+  
+# Unsupported activation: relu in function 'ReadDarknetFromCfgStream'
+# darknet_alexnet_256_imagenet:
+#   task_type: classification
+#   framework: darknet
+#   model: darknet/classification/alexnet/alexnet.weights
+#   config: darknet/classification/alexnet/alexnet_deploy.cfg
+#   labels: darknet/classification/data/labels/imagenet.txt
+#   mean: [0, 0, 0]
+#   scale: 0.00392156862745098  # 1/255
+#   width: 227
+#   height: 227
+#   rgb: true
+#   crop: false
+#   features: avgpool_303
+#   dimensions: 0
+#   threshold: 0.5
+#   active: true
+  
+
+# Darknet models that didn't work: alexnet, resnet50, resnet152, vgg16
+
+################################################################################
+#
+# Caffe classification models from other researchers
+#
+################################################################################
+
+# # https://gist.github.com/bogger/b90eb88e31cd745525ae
+caffe_googlenet_cars:
+  name: GoogleNet at 224px on Cars
+  task_type: classification
+  framework: caffe
+  model: caffe/classification/cars/googlenet_finetune_web_car_iter_10000.caffemodel
+  config: caffe/classification/cars/deploy.prototxt
+  labels: caffe/classification/cars/make_model_names.txt
+  mean: [104, 117, 123]
+  scale: 1.0
+  width: 224
+  height: 224
+  rgb: false
+  crop: false
+  features: pool5_drop
+  dimensions: 1024
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.5
+  active: true
+
+
+################################################################################
+#
+# Caffe classification models for Places365
+#
+################################################################################
+
+# Places365
+caffe_googlenet_places365:
+  name: GoogleNet at 224px on Places365
+  task_type: classification
+  framework: caffe
+  model: caffe/classification/places365/googlenet_places365/googlenet_places365.caffemodel
+  config: caffe/classification/places365/googlenet_places365/googlenet_places365.prototxt
+  labels: caffe/classification/places365/data/places365_labels.txt
+  mean: [104, 117, 123]
+  scale: 1.0
+  width: 224
+  height: 224
+  rgb: false
+  crop: false
+  features: pool5/drop_7x7_s1
+  dimensions: 1024
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.5
+  active: true
+
+
+caffe_alexnet_places365:
+  name: AlexNet at 224px on Places365
+  task_type: classification
+  framework: caffe
+  model: caffe/classification/places365/alexnet_places365/alexnet_places365.caffemodel
+  config: caffe/classification/places365/alexnet_places365/alexnet_places365.prototxt
+  labels: caffe/classification/places365/data/places365_labels.txt
+  mean: [104, 117, 123]
+  scale: 1.0
+  width: 224
+  height: 224
+  rgb: false
+  crop: false
+  features: drop7
+  dimensions: 4096
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.5
+  active: true
+
+
+caffe_vgg16_places365:
+  name: VGG16 at 224px on Places365
+  task_type: classification
+  framework: caffe
+  model: caffe/classification/places365/vgg16_places365/vgg16_places365.caffemodel
+  config: caffe/classification/places365/vgg16_places365/vgg16_places365.prototxt
+  labels: caffe/classification/places365/data/places365_labels.txt
+  mean: [104, 117, 123]
+  scale: 1.0
+  width: 224
+  height: 224
+  rgb: false
+  crop: false
+  features: drop7
+  dimensions: 4096
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.5
+  active: true
+
+
+
+################################################################################
+#
+# Caffe Image classification models from BVLC model zoo
+#
+################################################################################
+
+
+# BVLC Imagenet GoogleNet
+caffe_bvlc_googlenet_imagenet:
+  name: BVLC GoogleNet at 224px on Imagenet
+  task_type: classification
+  framework: caffe
+  model: caffe/classification/imagenet/bvlc_googlenet/bvlc_googlenet.caffemodel
+  config: caffe/classification/imagenet/bvlc_googlenet/bvlc_googlenet.prototxt
+  labels: caffe/classification/imagenet/data/labels/imagenet.txt
+  mean: [104, 117, 123]
+  scale: 1.0
+  width: 224
+  height: 224
+  rgb: false
+  crop: false
+  features: pool5/drop_7x7_s1
+  dimensions: 1024
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.5
+  active: true
+  
+
+
+# BVLC Imagenet AlexNet
+caffe_bvlc_alexnet_imagenet:
+  name: BVLC AlexNet at 224px on Imagenet
+  task_type: classification
+  framework: caffe
+  model: caffe/classification/imagenet/bvlc_alexnet/bvlc_alexnet.caffemodel
+  config: caffe/classification/imagenet/bvlc_alexnet/bvlc_alexnet.prototxt
+  labels: caffe/classification/imagenet/data/labels/imagenet.txt
+  mean: [104, 117, 123]
+  scale: 1.0
+  width: 224
+  height: 224
+  rgb: false
+  crop: false
+  features: drop7
+  dimensions: 4096
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.5
+  active: true
+  
+
+# BVLC Reference Net
+caffe_bvlc_reference_caffenet_imagenet:
+  name: BVLC Reference CaffeNet at 224px on ImageNet
+  task_type: classification
+  framework: caffe
+  model: caffe/classification/imagenet/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel
+  config: caffe/classification/imagenet/bvlc_reference_caffenet/bvlc_reference_caffenet.prototxt
+  labels: caffe/classification/imagenet/data/labels/imagenet.txt
+  mean: [104, 117, 123]
+  scale: 1.0
+  width: 224
+  height: 224
+  rgb: false
+  crop: false
+  features: drop7
+  dimensions: 4096
+  backend: DEFAULT
+  target: CPU
+  threshold: 0.5
+  active: true
+  
+
+
+################################################################################
+# OpenCV Model Zoo ImageNet Classification Models
+################################################################################
+#
+# -Models that didn't work-
+# googlenet-v3 inception_v3_2016_08_28_frozen 
+#   could not parse pbtxt/txt file inception_v3_2016_08_28_frozen
+#
+# +Models to be added+
+# caffe_vgg16_imagenet:
+# caffe_vgg19_imagenet:
+#
+# caffe_squeezenet_1_0_imagenet:
+# caffe_squeezenet_1_1_imagenet:
+#
+# caffe_resnet50_imagenet:
+# caffe_resnet101_imagenet:
+# caffe_resnet152_imagenet:
+#
+# caffe_se_inception_imagenet:
+# caffe_se_resnet50_imagenet:
+# caffe_se_resnet101_imagenet:
+# caffe_se_resnet152_imagenet:
+# caffe_se_resnext50_imagenet:
+# caffe_se_resnext101_imagenet:
+
+
+
+# caffe_mobilenet_ssd_v2_imagenet:
+#   task_type: classification
+#   framework: caffe
+#   root: opencv_model_zoo/classification
+#   model: mobilenet/v2/cf/mobilenet-v2.caffemodel
+#   config: mobilenet/v2/cf/mobilenet-v2.prototxt
+#   labels: data/labels_imagenet.txt
+#   mean: [103.94, 116.78, 123.68]
+#   scale: 0.017  # 1 / 58.8235294117647
+#   width: 224
+#   height: 224
+#   rgb: false
+#   crop: false
+#   features: temp
+#   description: >-
+#     MobileNet V2 <https://arxiv.org/pdf/1801.04381.pdf>
+#   backend: DEFAULT
+#   target: CPU
+#   active: true
+
+
+# caffe_alexnet_imagenet:
+#   task_type: classification
+#   framework: caffe
+#   root: opencv_model_zoo/classification/
+#   model: alexnet/caffe/alexnet.caffemodel
+#   config: alexnet/caffe/alexnet.prototxt
+#   labels: data/labels_imagenet.txt
+#   mean: [104, 117, 123]
+#   scale: 1.0
+#   width: 224
+#   height: 224
+#   rgb: false
+#   crop: false
+#   features: todo
+#   backend: DEFAULT
+#   target: CPU
+#   threshold: 0.5
+#   active: true
+
+
+# caffe_googlenet_v1_imagenet:
+#   task_type: classification
+#   framework: caffe
+#   root: opencv_model_zoo/classification/
+#   model: googlenet/v1/caffe/googlenet-v1.caffemodel
+#   config: googlenet/v1/caffe/googlenet-v1.prototxt
+#   labels: data/labels_imagenet.txt
+#   mean: [104, 117, 123] 
+#   scale: 1.0
+#   width: 224
+#   height: 224
+#   rgb: false
+#   crop: false
+#   features: pool5/drop_7x7_s1
+#   description: >-
+#     cars classification model, ...
+#   backend: DEFAULT
+#   target: CPU
+#   threshold: 0.5
+#   license: ''
+#   active: true
+
+
+# caffe_googlenet_v2_imagenet:
+#   task_type: classification
+#   framework: caffe
+#   root: opencv_model_zoo/classification/
+#   model: googlenet/v1/caffe/googlenet-v2.caffemodel
+#   config: googlenet/v1/caffe/googlenet-v2.prototxt
+#   labels: data/labels_imagenet.txt
+#   mean: [104, 117, 123]
+#   scale: 1.0
+#   width: 224
+#   height: 224
+#   rgb: false
+#   crop: false
+#   features: pool5/drop_7x7_s1
+#   description: >-
+#     add description...
+#   backend: DEFAULT
+#   target: CPU
+#   threshold: 0.5
+#   license: ''
+#   active: true
+
+
+# caffe_googlenet_v4_imagenet:
+#   task_type: classification
+#   framework: caffe
+#   root: opencv_model_zoo/classification/
+#   model: googlenet/v4/caffe/googlenet-v4.caffemodel
+#   config: googlenet/v4/caffe/googlenet-v4.prototxt
+#   labels: data/labels_imagenet.txt
+#   mean: [104, 117, 123]
+#   scale: 0.0078125
+#   width: 229
+#   height: 229
+#   rgb: false
+#   crop: false
+#   features: pool5/drop_7x7_s1
+#   description: >-
+#     add description...
+#   backend: DEFAULT
+#   target: CPU
+#   threshold: 0.5
+#   license: ''
+#   active: true
+
+  
+
+
+
+
+
+# ------------------------------------------------------------------------------
+# 
+#
+# resources
+#
+# TensorFlow model zoo
+#
+# - Models: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
+# - configs: https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs
+#
+# OpenCV DNN TF Object Detection Exampls
+#
+# - Models: https://github.com/opencv/opencv/wiki/TensorFlow-Object-Detection-API
+#
+#
+# Other
+#
+# other https://songhan.github.io/DSD/
+# caffe_mobilenet_ssd_v1_imagenet:
+#   task_type: classification
+#   framework: caffe
+#   model: mobilenet/v1/1.0/224/cf/mobilenet-v1-1.0-224.caffemodel
+#   config: mobilenet/v1/1.0/224/cf/mobilenet-v1-1.0-224.prototxt
+#   labels: data/labels_imagenet.txt
+#   mean: [103.94, 116.78, 123.68]
+#   scale: 0.017  # 1 / 58.8235294117647
+#   width: 224
+#   height: 224
+#   rgb: false
+#   crop: false
+#   features: temp
+#   description: >-
+#     `mobilenet-v1-1.0-224` is one of MobileNet V1 architecture <https://arxiv.org/abs/1704.04861>
+#     with the width multiplier 1.0 and resolution 224. It is small, low-latency,
+#     low-power models parameterized to meet the resource constraints of a variety
+#     of use cases. They can be built upon for classification, detection, embeddings
+#     and segmentation similar to how other popular large scale models are used.
+#   backend: DEFAULT
+#   target: CPU
+#   threshold: 0.8
+#   active: true
+

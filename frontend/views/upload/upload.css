@@ -1,0 +1,10 @@
+.uploadShow img {
+  max-width: 30rem;
+  max-height: 20rem;
+}
+.upload {
+  height: 100%;
+}
+.upload > div:last-child {
+  flex: 1;
+}

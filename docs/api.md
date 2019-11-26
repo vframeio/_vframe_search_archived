@@ -1,0 +1,271 @@
+
+# API Routes
+
+The VFrame Search application incorporates a RESTful API for running searches
+and talking to the database.  APIs either process commandline parameters directly,
+or accept POST/PUT input as JSON.  For the most part, APIs return JSON with the
+following structure:
+
+```
+{ 'status': 'ok', 'res': ... }
+{ 'status': 'error', 'error': ... }
+```
+
+
+## Collection API
+
+### GET /api/v1/collection/
+
+List all collections
+
+* Implemented in CollectionView:index
+
+### POST /api/v1/collection/
+
+Create a new collection.
+
+* JSON params: title, username, notes, archived (boolean)
+* Implemented in CollectionView:post
+
+### DELETE /api/v1/collection/<id>/
+
+Delete a collection.
+
+* Implemented in CollectionView:delete
+
+### GET /api/v1/collection/<id>/
+
+Fetch a single collection.
+
+* Implemented in CollectionView:get
+
+### PUT /api/v1/collection/<id>/
+
+Update a collection.
+
+* JSON params: title, username, notes, archived (boolean)
+* Implemented in CollectionView:put
+
+### GET /api/v1/collection/<id>/export/
+
+Export a collection as a ZIP file
+
+* Implemented in CollectionView:export_collection
+
+### POST /api/v1/collection/<id>/media/
+
+Add media to a collection.
+
+* JSON params: media_id, username
+* Implemented in CollectionView:add_collection_media
+
+### DELETE /api/v1/collection/<id>/media/<media_id>/
+
+Remove media from a collection.
+
+* Implemented in CollectionView:destroy_collection_media
+
+
+## Feature API
+
+### GET /api/v1/feature/
+
+List all features
+
+* Implemented in FeatureView:index
+
+### POST /api/v1/feature/
+
+Create a new feature.
+
+* JSON params: active (boolean), modelzoo_name, index_type, username
+* Implemented in FeatureView:post
+
+### DELETE /api/v1/feature/<id>/
+
+Delete a feature.
+
+* Implemented in FeatureView:delete
+
+### GET /api/v1/feature/<id>/
+
+Fetch a single feature.
+
+* Implemented in FeatureView:get
+
+### PUT /api/v1/feature/<id>/
+
+Update a feature.
+
+* JSON params: active (boolean), modelzoo_name, index_type, username
+* Implemented in FeatureView:put
+
+
+## Media API
+
+### GET /api/v1/media/
+
+List all media.
+
+* Query string params: offset, limit, sort (id, date), order (asc, desc)
+* Implemented in MediaView:index
+
+### GET /api/v1/media/id/<id>/
+
+Fetch a single media by ID.
+
+* Implemented in MediaView:id
+
+### GET /api/v1/media/info/
+
+Get info about the quantity of media in the database, including free disk space.
+
+* Implemented in MediaView:info
+
+### GET /api/v1/media/random/
+
+Fetch a random media.
+
+* Implemented in MediaView:random
+
+### GET /api/v1/media/sha256/<string:hash>/
+
+Fetch a single media by SHA256.
+
+* Implemented in MediaView:sha256
+
+
+## Modelzoo API
+
+### GET /api/v1/modelzoo/
+
+List all models.
+
+* Implemented in ModelzooView:index
+
+### GET /api/v1/modelzoo/name/<string:name>/
+
+Fetch a single model by name.
+
+* Implemented in ModelzooView:name
+
+
+## Search API
+
+### GET /api/v1/search/info/
+
+Return information about the currently loaded model and feature index.
+
+* Implemented in SearchView:info
+
+### GET /api/v1/search/load/<id>/
+
+Load a feature index.
+
+* Implemented in SearchView:load
+
+### GET /api/v1/search/load_detection_model/<string:key>/
+
+Load a detection model.
+
+* Implemented in SearchView:load_detection_model
+
+### GET /api/v1/search/media/<id>/
+
+Query the model with a media object (by id).
+
+* Query string params: offset, limit
+* Implemented in SearchView:media
+
+### GET /api/v1/search/random/<string:seed>/
+
+Fetches a random media w/ seed.
+
+* Query string params: offset, limit
+* Implemented in SearchView:random
+
+### GET /api/v1/search/sha256/<string:hash>/
+
+Query the model with a media object (by sha256)
+
+* Query string params: offset, limit
+* Implemented in SearchView:sha256
+
+### GET /api/v1/search/upload/<id>/
+
+Query the model with something we already uploaded
+
+* Query string params: offset, limit
+* Implemented in SearchView:upload
+
+
+## Socket API
+
+### GET /api/v1/socket/clients/
+
+List currently connected websocket clients. This includes both web clients and workers.
+
+* Implemented in SocketView:clients
+
+
+## Task API
+
+### GET /api/v1/task/
+
+List all allowed tasks.
+
+* Implemented in TaskView:index
+
+### GET /api/v1/task/info/
+
+List task queues, as reported by Celery.
+
+* Implemented in TaskView:info
+
+### POST /api/v1/task/run/
+
+Run a task.
+
+* JSON parameters: task_name, params (hash, if applicable)
+* Implemented in TaskView:run_task
+
+### POST /api/v1/task/test/
+
+Run a test task, which reports periodically over websocket until it completes.
+
+* Implemented in TaskView:test
+
+
+## Upload API
+
+### GET /api/v1/upload/
+
+List all uploaded files.
+
+* Query string params: offset, limit, sort (id, date), order (asc, desc)
+* Implemented in UploadView:index
+
+### POST /api/v1/upload/
+
+Upload a new file.
+
+* JSON params: username
+* Implemented in UploadView:post
+
+### DELETE /api/v1/upload/<id>/
+
+Delete an uploaded file.
+
+* Implemented in UploadView:delete
+
+### GET /api/v1/upload/<id>/
+
+Fetch a single upload.
+
+* Implemented in UploadView:get
+
+
+
+---
+This documentation was automatically generated by running `python cli_docs.py routes`
+

@@ -1,0 +1,8 @@
+export { Container as collection } from './collection'
+export { Container as dashboard } from './dashboard'
+export { Container as modelzoo } from './modelzoo'
+export { Container as feature } from './feature'
+export { Container as search } from './search'
+export { Container as upload } from './upload'
+export { Container as media } from './media'
+export { Container as task } from './task'

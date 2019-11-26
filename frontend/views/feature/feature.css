@@ -1,0 +1,6 @@
+.feature {
+  height: 100%;
+}
+.feature > div.row {
+  padding: 1.25rem;
+}

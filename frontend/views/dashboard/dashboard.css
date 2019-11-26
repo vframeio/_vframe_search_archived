@@ -1,0 +1,59 @@
+html, body {
+}
+body > div, body > div > div, body .app, .body {
+  height: calc(100vh - 3.125rem);
+}
+.modelzoo {
+  height: 100%;
+}
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  background: #f8f8f8;
+  height: 100%;
+}
+.dashboard > div:last-child {
+  padding: 1.25rem;
+}
+.dashboard h1 {
+  margin-top: 0;
+}
+
+.row > div.sidebarContainer {
+  height: 100%;
+  background: #f8f8f8;
+  margin: 0;
+}
+.sidebar {
+  border-right: 1px solid #ddd;
+  display: block;
+  margin: 0; padding: 0;
+  width: 10rem;
+  list-style-type: none;
+  background: #f8f8f8;
+  height: 100%;
+}
+.sidebar li {
+  list-style-type: none;
+  margin: 0; padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+.sidebar li:hover {
+  background: #fff;
+}
+.sidebar a {
+  color: #000;
+  text-decoration: none;
+}
+.sidebar a.active li {
+  background-color: #e8e8e8;
+  font-weight: bold
+}
+.page {
+  display: block;
+  border-left: 1px solid #ddd;
+  padding: 1.25rem;
+  background: #fff;
+  height: 100%;
+  flex: 1;
+}
